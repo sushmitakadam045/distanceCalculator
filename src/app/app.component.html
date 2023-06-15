@@ -1,0 +1,41 @@
+<br>
+<h2 class="padAllSides">Calculate Aerial Distance Between Two Points(Value in degrees must be between -90 to +90)</h2>
+<br>
+<div class = "row padAllSides">
+  <h5>Input Latitude and Longitude for Point A</h5>
+  <div class="form-group col">
+    <label for="latituteA">Latitude</label>
+    <input type="number" class="form-control" value="0" id="latituteA"  [ngModelOptions]="{standalone: true}" [(ngModel)]="latitudeA" (input)="removeResult();resetLatAErr();" min="-90" max="90" step=".01" placeholder="Enter Latitude of Point A">
+    <div class = "padAllSides" *ngIf="latitudeAErr" style="color: red;">Value should be between -90 deg to 90 deg </div>
+  </div>
+
+  <div class="form-group col">
+    <label for="longitudeA">Longitude</label>
+    <input type="number" class="form-control" value="0" id="longitudeA" [ngModelOptions]="{standalone: true}" [(ngModel)]="longitudeA" (input)="removeResult();resetLonAErr();" min="-90" max="90" step=".01" placeholder="Enter Latitude of Point A">
+    <div class = "padAllSides" *ngIf="longitudeAErr" style="color: red;">Value should be between -90 deg to 90 deg </div> 
+  </div> 
+</div>
+  
+<br>
+  
+<div class = "row padAllSides">
+  <h5>Input Latitude and Longitude for Point B</h5>
+  <div class="form-group col">
+    <label for="latituteB">Latitude</label>
+    <input type="number" class="form-control" value="0" id="latituteB" [ngModelOptions]="{standalone: true}" [(ngModel)]="latitudeB" (input)="removeResult();;resetLatBErr();" min="-90" max="90" step=".01" placeholder="Enter Latitude of Point B">
+    <div class = "padAllSides" *ngIf="latitudeBErr" style="color: red;">Value should be between -90 deg to 90 deg </div>
+  </div>
+  <div class="form-group col">
+    <label for="longitudeB">Longitude</label>
+    <input type="number" class="form-control" value="0" id="longitudeB" [ngModelOptions]="{standalone: true}" [(ngModel)]="longitudeB" (input)="removeResult();resetLonBErr();" min="-90" max="90" step=".01" placeholder="Enter Latitude of Point B">
+    <div class = "padAllSides" *ngIf="longitudeBErr" style="color: red;">Value should be between -90 deg to 90 deg </div> 
+  </div>    
+</div>
+
+<br>
+  
+<div class="padAllSides"><button class="btn btn-primary" (click)="calculateDistance();">Submit</button></div>
+
+<br>
+
+<h4 class = "padAllSides" *ngIf="buttonClicked">Air distance between Point A and Point B is {{airDistance | number : '1.0-2'}} kms</h4>
